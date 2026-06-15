@@ -539,6 +539,71 @@ The measured distance is continuously printed to the Serial Monitor in centimete
 * Use servo motor for rotating distance scanning
 * Integrate with IoT for remote monitoring
 
+# 5.Light-Based LED Indicator using Photoresistor
+
+## Description
+
+This project is a light-sensitive LED indicator using Arduino and a photoresistor (LDR).
+The Arduino reads light intensity through the photoresistor and turns ON different LEDs based on the detected light level.
+
+When the sensor value is greater than a set threshold, the red LED turns ON. Otherwise, the green LED turns ON.
+
+---
+
+## Working Principle
+
+The Arduino reads analog values from a photoresistor connected to an analog input pin.
+
+* The photoresistor changes resistance based on light intensity.
+* The Arduino continuously monitors the sensor value.
+* If the sensor reading is **greater than 600**, the **red LED turns ON**.
+* If the sensor reading is **600 or below**, the **green LED turns ON**.
+
+This creates a simple light-level indicator system.
+
+---
+
+## Features
+
+* Detects ambient light using a photoresistor
+* Switches between red and green LEDs automatically
+* Beginner-friendly Arduino sensor project
+* Demonstrates analog input reading
+* Uses conditional statements (`if-else`) in Arduino
+
+---
+
+## Components Used
+
+* Arduino Uno
+* Photoresistor (LDR) / Ambient Light Sensor
+* Red LED
+* Green LED
+* 2 × 330Ω Resistors (for LEDs)
+* 1 × Resistor for LDR circuit
+* Jumper Wires
+
+---
+
+## Applications
+
+* Automatic light detection systems
+* Day and night indicators
+* Smart lighting basics
+* Beginner sensor-based Arduino projects
+* Learning analog sensor interfacing
+
+---
+
+## Future Improvements
+
+* Add a buzzer for low/high light alerts
+* Display sensor values on an LCD
+* Add adjustable threshold using a potentiometer
+* Control room lights automatically using a relay
+* Use RGB LEDs for multiple light levels
+
+
 
 
 ## Author
