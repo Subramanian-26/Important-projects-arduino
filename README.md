@@ -603,7 +603,7 @@ This creates a simple light-level indicator system.
 * Control room lights automatically using a relay
 * Use RGB LEDs for multiple light levels
 
-# 5.IR Remote Controlled DC Motor using Arduino
+# 6.IR Remote Controlled DC Motor using Arduino
 
 ## Description
 
