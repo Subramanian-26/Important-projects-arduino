@@ -603,6 +603,150 @@ This creates a simple light-level indicator system.
 * Control room lights automatically using a relay
 * Use RGB LEDs for multiple light levels
 
+# 5.IR Remote Controlled DC Motor using Arduino
+
+## Description
+
+This project is a beginner-friendly DC motor control system using Arduino Uno, an IR remote, an IR receiver, and an L293D motor driver IC.
+
+The IR remote is used to wirelessly control the motor. Using different buttons on the remote, the user can:
+
+Turn the motor ON and OFF
+Change the direction of rotation (Forward/Backward)
+Increase the motor speed
+Decrease the motor speed
+
+Two LEDs are also used as direction indicators:
+
+Green LED indicates forward rotation.
+Red LED indicates reverse rotation.
+
+The motor speed is controlled using Pulse Width Modulation (PWM), allowing smooth speed adjustment.
+
+## Working Principle
+
+The Arduino continuously listens for signals from the IR receiver.
+
+Whenever a button on the IR remote is pressed, the IR receiver sends the corresponding hexadecimal code to the Arduino.
+
+Depending on the received code, the Arduino performs different actions:
+
+Power button toggles the motor ON and OFF.
+Forward button rotates the motor in the forward direction.
+Reverse button rotates the motor in the reverse direction.
+Speed Up button increases the PWM duty cycle.
+Speed Down button decreases the PWM duty cycle.
+
+The L293D motor driver receives these control signals and drives the DC motor accordingly.
+
+Motor Direction Control
+
+The L293D motor driver controls the direction of rotation using two digital input pins.
+
+Forward Rotation
+IN1 = HIGH
+IN2 = LOW
+
+The motor rotates in the forward direction.
+
+The Green LED turns ON to indicate forward motion.
+
+Reverse Rotation
+IN1 = LOW
+IN2 = HIGH
+
+The motor rotates in the reverse direction.
+
+The Red LED turns ON to indicate reverse motion.
+
+Speed Control using PWM
+
+The enable pin (EN) of the L293D is connected to one of the Arduino PWM pins.
+
+The Arduino controls motor speed using:
+
+analogWrite(en, speedmotor);
+
+The PWM value ranges from:
+
+0 → Motor Stopped
+
+255 → Maximum Speed
+
+The Speed Up button increases the PWM value by:
+
++50
+
+The Speed Down button decreases the PWM value by:
+
+-50
+
+The Arduino ensures that the PWM value always remains within:
+
+0 ≤ speedmotor ≤ 255
+
+##Features
+
+Wireless DC motor control using an IR remote
+Turn motor ON/OFF
+Forward and reverse motor rotation
+Adjustable motor speed using PWM
+Green LED indicates forward direction
+Red LED indicates reverse direction
+Uses L293D motor driver for safe motor control
+Beginner-friendly embedded systems project
+No breadboard required
+
+## Components Used
+
+Arduino Uno
+IR Remote
+IR Receiver Module
+L293D Motor Driver IC
+DC Motor
+Green LED
+Red LED
+2 × 220 Ω Resistors
+Jumper Wires
+External Power Supply (for the motor)
+
+## Pin Connections
+
+IR Receiver
+VCC → 5V
+GND → GND
+OUT → Pin 10
+L293D Motor Driver
+Enable (EN) → Pin 9 (PWM)
+IN1 → Pin 7
+IN2 → Pin 8
+Green LED
+Pin 3 → 220 Ω Resistor → Anode (+)
+Cathode (–) → GND
+Red LED
+Pin 11 → 220 Ω Resistor → Anode (+)
+Cathode (–) → GND
+DC Motor connected to the output terminals of the L293D motor driver.
+
+## Applications
+
+Learning DC motor control
+Understanding PWM speed control
+IR remote interfacing with Arduino
+Embedded systems practice
+Wireless motor control demonstration
+Robotics and automation projects
+
+## Future Improvements
+
+Display motor speed on a 16×2 LCD or OLED display
+Make the indicator LEDs vary in brightness according to motor speed using PWM
+Add smooth acceleration and deceleration
+Store the last motor speed after power cycling
+Replace the IR remote with Bluetooth or Wi-Fi control
+Add encoder-based speed feedback for closed-loop control
+Control multiple motors using additional motor driver channels
+
 
 
 
