@@ -695,7 +695,7 @@ Green LED indicates forward direction
 Red LED indicates reverse direction
 Uses L293D motor driver for safe motor control
 Beginner-friendly embedded systems project
-No breadboard required
+
 
 ## Components Used
 
@@ -708,6 +708,7 @@ Green LED
 Red LED
 2 × 220 Ω Resistors
 Jumper Wires
+Breadboard
 External Power Supply (for the motor)
 
 ## Pin Connections
@@ -746,6 +747,107 @@ Store the last motor speed after power cycling
 Replace the IR remote with Bluetooth or Wi-Fi control
 Add encoder-based speed feedback for closed-loop control
 Control multiple motors using additional motor driver channels
+
+# 7.IR Remote Controlled RGB LED using Arduino
+
+## Description
+
+This project is a beginner-friendly RGB LED control system using an Arduino Uno, an IR remote, and an IR receiver module.
+
+The IR remote is used to wirelessly control the color of an RGB LED. Different buttons on the remote produce different colors, allowing the user to change the LED color without physically interacting with the circuit.
+
+A power control feature is also implemented. The color buttons function only after the Power button is pressed. Pressing the FUNC/STOP button turns the LED OFF and disables all color-changing functions until the Power button is pressed again.
+
+This project is an excellent introduction to IR communication, PWM control, and RGB LED interfacing with Arduino.
+
+## Working Principle
+
+The Arduino continuously waits for signals from the IR receiver.
+
+Whenever a button on the IR remote is pressed, the IR receiver sends the corresponding hexadecimal code to the Arduino.
+
+The Arduino compares the received hexadecimal code with predefined values using if statements.
+
+Depending on the button pressed, the Arduino changes the brightness of the Red, Green, and Blue channels of the RGB LED using PWM (analogWrite()).
+
+A boolean variable named power keeps track of whether the system is ON or OFF.
+
+When the Power button is pressed, the RGB LED turns White and enables color selection.
+When the FUNC/STOP button is pressed, the RGB LED turns OFF and disables all color buttons.
+The remaining buttons change the LED to different colors only when the system is powered ON.
+
+
+The Arduino controls LED brightness using PWM with:
+
+analogWrite(pin, brightness);
+
+where the brightness ranges from:
+
+0   → LED OFF
+
+255 → Maximum Brightness
+Remote Button Functions
+Remote Button	Hexadecimal Code	Function
+Power	0xFF00BF00	Turns the RGB LED ON (White) and enables color selection
+FUNC/STOP	0xFD02BF00	Turns the RGB LED OFF and disables all color buttons
+0	0xF30CBF00	White
+1	0xEF10BF00	Red
+2	0xEE11BF00	Green
+3	0xED12BF00	Blue
+4	0xEB14BF00	Purple
+5	0xEA15BF00	Cyan
+6	0xE916BF00	Yellow
+
+## Features
+
+Wireless RGB LED control using an IR remote
+Power ON/OFF functionality
+Seven different LED colors
+Color selection enabled only when powered ON
+Uses PWM for RGB color generation
+Beginner-friendly Arduino project
+Demonstrates IR remote interfacing
+Demonstrates RGB LED control
+Uses hexadecimal button codes for command recognition
+Breadboard-based circuit
+Easy to modify and expand with additional colors or lighting effects
+
+## Components Used
+
+Arduino Uno
+Breadboard
+IR Remote
+IR Receiver Module
+RGB LED (Common Cathode)
+3 × 1 kΩ Resistors
+Jumper Wires
+
+## Pin Connections
+
+IR Receiver Module
+VCC → 5V
+GND → GND
+OUT → Pin 5
+
+Note: Each color pin of the RGB LED is connected to the Arduino through a 1 kΩ current-limiting resistor.
+
+## Applications
+
+Learning IR remote interfacing
+Understanding RGB LED color mixing
+Learning PWM (Pulse Width Modulation)
+Wireless lighting control
+Embedded systems practice
+Arduino beginner projects
+Educational demonstrations of IR communication
+Future Improvements
+Add brightness control using additional remote buttons
+Implement smooth color fading effects
+Allow users to create custom RGB color combinations
+Store the last selected color in EEPROM memory
+Replace the IR remote with Bluetooth or Wi-Fi control
+Add predefined lighting patterns such as blinking, breathing, and rainbow effects
+Expand the project to control multiple RGB LEDs simultaneously
 
 
 
