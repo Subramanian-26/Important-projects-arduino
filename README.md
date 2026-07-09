@@ -685,7 +685,7 @@ The Arduino ensures that the PWM value always remains within:
 
 0 ≤ speedmotor ≤ 255
 
-##Features
+## Features
 
 Wireless DC motor control using an IR remote
 Turn motor ON/OFF
